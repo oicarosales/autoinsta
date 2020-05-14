@@ -24,21 +24,15 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
-<!-- - [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
- -->
- - [Authors](#authors)
- 
+- [Authors](#authors)
+
 ## 🧐 About <a name = "about"></a>
 
 The intention is to automate business account interactions with your customers, redirecting them to support or sales emails.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -72,7 +66,9 @@ CREATE TABLE tbl_like_log ( id int(11) NOT NULL AUTO_INCREMENT
 	, hashtag varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 	, user_login varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 	, PRIMARY KEY (id) ) ENGINE=InnoDB AUTO_INCREMENT=295 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+```
 
+```
 CREATE TABLE tbl_login_log ( id int(11) NOT NULL AUTO_INCREMENT
 	, user varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 	, data_login datetime NOT NULL
@@ -98,52 +94,6 @@ Ex: $ sudo chmod + x AutoInsta.py
 Ex: ./AutoInsta.py
 ```
 
-<!-- End with an example of getting some data out of the system or using it for a little demo.
-
-## 🔧 Running the tests <a name = "tests"></a>
-
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## 🎈 Usage <a name="usage"></a>
-
-Add notes about how to use the system.
-
-## 🚀 Deployment <a name = "deployment"></a>
-
-Add additional notes about how to deploy this on a live system.
-
-## ⛏️ Built Using <a name = "built_using"></a>
-
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
- -->
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@icaromsales](https://github.com/icaromsales) - Idea & Initial work
-
-<!-- See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
- -->
