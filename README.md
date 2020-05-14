@@ -1,36 +1,114 @@
-# AutoInsta
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="images/logo_project.png" alt="Project logo"></a>
+</p>
 
-1. Tenha o banco MySQL instalado.
+<h3 align="center">AutoInsta</h3>
 
-2. Crie uma base de dados:
-Ex: CREATE DATABASE `AUTOINSTA` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */
+<div align="center">
 
-3. Crie as tabelas necessárias para registro de likes, comentários e atividade de login:
-Ex: CREATE TABLE `tbl_like_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `url` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `data_like` datetime NOT NULL,
-  `comment` varchar(10000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `hashtag` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_login` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=295 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
-Ex: CREATE TABLE `tbl_login_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `data_login` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+</div>
 
-4. Insira a senha da sua conta na primeira linha do arquivo 'passwd.key'
+---
 
-5. Substitua os textos dos comentários ao seu gosto no arquivo 'comments.txt'. (Um comentário por linha)
+<p align="center"> Few lines describing your project.
+    <br> 
+</p>
 
-6. Subistitua as palavras chaves (hashtags) na linha 69 do arquivo 'AutoInsta.py' pelas que você deseja.
+## 📝 Table of Contents
 
-7. Dê permissões de execução ao arquivo 'AutoInsta.py':
-Ex: $ sudo chmod +x AutoInsta.py
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Deployment](#deployment)
+- [Usage](#usage)
+- [Built Using](#built_using)
+- [TODO](../TODO.md)
+- [Contributing](../CONTRIBUTING.md)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgement)
 
-8. Rode o script:
-Ex: ./AutoInsta.py
+## 🧐 About <a name = "about"></a>
+
+Write about 1-2 paragraphs describing the purpose of your project.
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them.
+
+```
+Give examples
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running.
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo.
+
+## 🔧 Running the tests <a name = "tests"></a>
+
+Explain how to run the automated tests for this system.
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## 🎈 Usage <a name="usage"></a>
+
+Add notes about how to use the system.
+
+## 🚀 Deployment <a name = "deployment"></a>
+
+Add additional notes about how to deploy this on a live system.
+
+## ⛏️ Built Using <a name = "built_using"></a>
+
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [VueJs](https://vuejs.org/) - Web Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment
+
+## ✍️ Authors <a name = "authors"></a>
+
+- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+
+See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+
+## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- References
