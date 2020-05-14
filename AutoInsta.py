@@ -3,12 +3,10 @@
 import random
 import time
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 import mysql.connector
-import numpy as np
 
 # DADOS LOGIN DATABASE
-mydb = mysql.connector.connect(
+MYDB = mysql.connector.connect(
     host='',
     user='',
     passwd='',
@@ -17,140 +15,136 @@ mydb = mysql.connector.connect(
 # FIM DADOS LOGIN DATABASE
 
 # POPULA TBL_LOGIN_LOG
-mycursor = mydb.cursor()
-sql = 'INSERT INTO tbl_login_log (user, data_login) VALUES (CURRENT_USER(), now())'
-mycursor.execute(sql)
-mydb.commit()
+MYCURSOR = MYDB.cursor()
+SQL = 'INSERT INTO tbl_login_log (user, data_login) VALUES (CURRENT_USER(), now())'
+MYCURSOR.execute(SQL)
+MYDB.commit()
 # FIM POPULA TBL_LOGIN_LOG
 
 # ABRE INSTAGRAM.COM
-driver = webdriver.Firefox()
+DRIVER = webdriver.Firefox()
 print('Abrindo instagram.com.')
-# driver.set_window_size(800, 800)
-# driver.set_window_position(600, 0)
-driver.get('https://www.instagram.com/')
+DRIVER.get('https://www.instagram.com/')
 
 time.sleep(8)
 
 # AUTENTICAÇÃO
 print('Inserindo login e senha.')
-login = driver.find_element_by_xpath(
+LOGIN = DRIVER.find_element_by_xpath(
     '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[2]/div/label/input')
-user = ''  # Ponha seu login aqui
-login.send_keys(user)
+USER = ''  # Ponha seu login aqui
+LOGIN.send_keys(USER)
 
 time.sleep(1)
 
 # LÊ ARQUIVO DE SENHA
-f = open('passwd.key', 'r')
-lines = f.readlines()
-password = lines[0]
-pass_box = driver.find_element_by_xpath(
+F = open('passwd.key', 'r')
+LINES = F.readlines()
+PASSWORD = LINES[0]
+PASS_BOX = DRIVER.find_element_by_xpath(
     '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input')
-pass_box.send_keys(password)
-f.close()
+PASS_BOX.send_keys(PASSWORD)
+F.close()
 
 time.sleep(1)
 # BOTÃO DE LOGIN
-button_element = driver.find_element_by_xpath(
+BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
     '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[4]/button/div')
-button_element.click()
+BUTTON_ELEMENT.click()
 
 time.sleep(15)
 # BOTÃO NOT NOW
-button_element = driver.find_element_by_xpath(
+BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
     '/html/body/div[4]/div/div/div[3]/button[2]')
-button_element.click()
+BUTTON_ELEMENT.click()
 
 time.sleep(1)
 
-# HASHTAGS QUE SERÃO BUSCADAS - MODIFIQUE OU ADICIONE LIVREMENTE
-print('Buscando hashtags para dar like.')
-hashtags = ['minimalsetups', 'designyourworkspace',
-            'officeinspiration', 'designoffice', 'productivespaces']
+# HASHTAGS QUE SERÃO BUSCADAS - MODIFIQUE OU ADICIONE LIVREMENTE NO ARQUIVO HASHTAGS.txt
+HASHTAGS_FILE = open('hashtags.txt', 'r')
+HASHTAGS = HASHTAGS_FILE.readlines()
 
-
-tempo = [8, 9, 10, 11, 12, 13, 15, 16, 18, 20, 30, 60, 120]
+# Randomização do TEMPO de espera entre as ações
+TEMPO = [8, 9, 10, 11, 12, 13, 15, 16, 18, 20, 30, 60, 120]
 
 # LÊ ARQUIVO DE COMENTÁRIOS - MODIFIQUE INSERINDO UM COMENTÁRIO POR LINHA
-f = open('comments.txt', 'r')
-lines = f.readlines()
-comments = lines
+F = open('comments.txt', 'r')
+COMMENTS = F.readlines()
 
 # CATEGORIZA OS POSTS EM POPULARES OU RECENTES
-pop_or_recent = ['/html/body/div[1]/section/main/article/div[2]/div/div[1]/div[1]/a/div',
+POP_OR_RECENT = ['/html/body/div[1]/section/main/article/div[2]/div/div[1]/div[1]/a/div',
                  '/html/body/div[1]/section/main/article/div[1]/div/div/div[2]/div[1]/a/div']
 
 # LOOP INFINITO
 while 0 < 1:
     # ESCOLHA RANDOMICA DA HASHTAG
-    hashtag = random.choice(hashtags)
-    driver.get('https://www.instagram.com/explore/tags/' + hashtag + '/')
-    print(str(hashtag))
+    HASHTAG = random.choice(HASHTAGS)
+    DRIVER.get('https://www.instagram.com/explore/tags/' + HASHTAG + '/')
+    print(str(HASHTAG))
 
-    driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+    DRIVER.execute_script("window.scrollTo(0,document.body.scrollHeight)")
     time.sleep(2)
-    driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
-    time.sleep(random.choice(tempo))
+    DRIVER.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+    time.sleep(random.choice(TEMPO))
 
     # ESCOLHA RANDOMICA DO COMENTÁRIO
-    text = random.choice(comments)
+    TEXT = random.choice(COMMENTS)
 
     # ESCOLHA RANDOMICA DA CATEGORIA
-    button_element = driver.find_element_by_xpath(
+    BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
         '/html/body/div[1]/section/main/article/div[1]/div/div/div[2]/div[1]/a/div')
-    button_element.click()
+    BUTTON_ELEMENT.click()
 
-    time.sleep(random.choice(tempo))
+    time.sleep(random.choice(TEMPO))
 
     # CHECA NO BANCO DE DADOS SE A PUBLICAÇÃO ATUAL JÁ FOI CURTIDA
-    url = driver.current_url
-    sql = "SELECT url FROM tbl_like_log where url =" + "'" + \
-        str(url)+"'" + " and user_login = " + "'"+str(user)+"'" + ""
-    mycursor.execute(sql)
-    likes = mycursor.fetchall()
+    URL = DRIVER.current_url
+    SQL = "SELECT url FROM tbl_like_log where url =" + "'" + \
+        str(URL)+"'" + " and user_login = " + "'"+str(USER)+"'" + ""
+    MYCURSOR.execute(SQL)
+    LIKES = MYCURSOR.fetchall()
 
     # IF - SE A PUBLICAÇÃO JÁ FOI CURTIDA, AVANÇA PARA PRÓXIMA. SE NÃO DÁ LIKE
-    if str(url) in str(likes):
-        print(str(url)+' Já curtimos esta publicação!')
-        button_element = driver.find_element_by_xpath(
+    if str(URL) in str(LIKES):
+        print(str(URL)+' Já curtimos esta publicação!')
+        BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
             '/html/body/div[4]/div[1]/div/div/a')
-        button_element.click()
+        BUTTON_ELEMENT.click()
     else:
-        button_element = driver.find_element_by_xpath(
+        BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
             '/html/body/div[4]/div[2]/div/article/div[2]/section[1]/span[1]/button')
-    button_element.click()
+    BUTTON_ELEMENT.click()
     print('Like!')
 
-    time.sleep(random.choice(tempo))
+    time.sleep(random.choice(TEMPO))
 
     # SELECIONA CAMPO DE COMENTÁRIO
-    button_element = driver.find_element_by_css_selector(
+    BUTTON_ELEMENT = DRIVER.find_element_by_css_selector(
         '.Ypffh')
-    button_element.click()
+    BUTTON_ELEMENT.click()
     time.sleep(2)
-    button_element = driver.find_element_by_css_selector(
+    BUTTON_ELEMENT = DRIVER.find_element_by_css_selector(
         '.Ypffh')
     time.sleep(2)
     # FAZ COMENTARIO ESCOLIDO RANDOMICAMENTE NA LINHA 92
-    button_element.send_keys(text)
+    BUTTON_ELEMENT.send_keys(TEXT)
 
     time.sleep(2)
 
     # CLICA BOTÃO PUBLISH
-    button_element = driver.find_element_by_xpath(
+    BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
         '/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form/button')
-    button_element.click()
+    BUTTON_ELEMENT.click()
 
-    time.sleep(random.choice(tempo))
+    time.sleep(random.choice(TEMPO))
 
     # POPULA TBL_LIKE_LOG NO BANCO DE DADOS
-    sql = 'INSERT INTO tbl_like_log (url, data_like, comment, hashtag, user_login) VALUES (%s, now(), %s, %s,%s)'
-    val = (str(url), str(text), str(hashtag), str(user))
-    mycursor.execute(sql, val)
-    mydb.commit()
+    SQL = 'INSERT INTO tbl_like_log (URL, data_like, comment, hashtag, user_login) VALUES (%s, now(), %s, %s,%s)'
+    VAL = (str(URL), str(TEXT), str(HASHTAG), str(USER))
+    MYCURSOR.execute(SQL, VAL)
+    MYDB.commit()
 
     # AVANÇA PARA PROXIMA PUBLICAÇÃO
-    button_element = driver.find_element_by_xpath(
+    BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
         '/html/body/div[4]/div[1]/div/div/a')
-    button_element.click()
+    BUTTON_ELEMENT.click()
