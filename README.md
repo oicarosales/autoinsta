@@ -16,7 +16,7 @@
 
 ---
 
-<p align="center"> Few lines describing your project.
+<p align="center"> Automatically manage Instagram accounts with likes and comments guided by hashtags.
     <br> 
 </p>
 
@@ -24,17 +24,17 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Deployment](#deployment)
+<!-- - [Deployment](#deployment)
 - [Usage](#usage)
 - [Built Using](#built_using)
 - [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
-
+ -->
+ - [Authors](#authors)
+ 
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+The intention is to automate business account interactions with your customers, redirecting them to support or sales emails.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -45,26 +45,60 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them.
 
 ```
-Give examples
+Python3
+
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
 ```
-Give the example
+1. Have the MySQL database installed
 ```
 
-And repeat
+```
+2. Create a data base to project:
+Ex:
+CREATE DATABASE AUTOINSTA /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */
 
 ```
-until finished
+
+```
+3. Create the necessary tables to record likes, comments and login activity:
+Ex: 
+CREATE TABLE tbl_like_log ( id int(11) NOT NULL AUTO_INCREMENT
+	, url varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+	, data_like datetime NOT NULL
+	, comment varchar(10000) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+	, hashtag varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
+	, user_login varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+	, PRIMARY KEY (id) ) ENGINE=InnoDB AUTO_INCREMENT=295 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+
+CREATE TABLE tbl_login_log ( id int(11) NOT NULL AUTO_INCREMENT
+	, user varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+	, data_login datetime NOT NULL
+	, PRIMARY KEY (id) ) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+```
+4. Enter your account password on the first line of the 'passwd.key' file.
+```
+```
+5. Replace the text of the comments to your liking in the 'comments.txt' file. (One comment per line).
+```
+```
+6. Replace the keywords (hashtags) in line 69 of the 'AutoInsta.py' file with the ones you want.
+```
+```
+7. Give execute permissions to the 'AutoInsta.py' file:
+Ex: $ sudo chmod + x AutoInsta.py
+```
+```
+8. Run the script:
+Ex: ./AutoInsta.py
+```
+
+<!-- End with an example of getting some data out of the system or using it for a little demo.
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
@@ -100,15 +134,16 @@ Add additional notes about how to deploy this on a live system.
 - [Express](https://expressjs.com/) - Server Framework
 - [VueJs](https://vuejs.org/) - Web Framework
 - [NodeJs](https://nodejs.org/en/) - Server Environment
-
+ -->
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+- [@icaromsales](https://github.com/icaromsales) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+<!-- See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
 - Hat tip to anyone whose code was used
 - Inspiration
 - References
+ -->
