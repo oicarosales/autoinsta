@@ -65,14 +65,14 @@ CREATE TABLE tbl_like_log ( id int(11) NOT NULL AUTO_INCREMENT
 	, comment varchar(10000) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 	, hashtag varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 	, user_login varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-	, PRIMARY KEY (id) ) ENGINE=InnoDB AUTO_INCREMENT=295 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+	, PRIMARY KEY (id) ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 ```
 
 ```
 CREATE TABLE tbl_login_log ( id int(11) NOT NULL AUTO_INCREMENT
 	, user varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 	, data_login datetime NOT NULL
-	, PRIMARY KEY (id) ) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+	, PRIMARY KEY (id) ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 
 ```
 
