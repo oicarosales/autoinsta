@@ -11,10 +11,10 @@ logging.basicConfig(filename=('log.log'),
 
 # DADOS LOGIN DATABASE
 MYDB = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    passwd='dig0n4o.',
-    database='INSTA_BOT'
+    host='',
+    user='',
+    passwd='',
+    database=''
 )
 # FIM DADOS LOGIN DATABASE
 logging.debug(MYDB)
