@@ -42,9 +42,7 @@ coders
 codingisfun
 androiddeveloper
 iosdeveloper
-startup
 softwaretesting
-angular
 softwarecompany
 learntocode
 peoplewhocode

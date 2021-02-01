@@ -39,7 +39,7 @@ time.sleep(8)
 # AUTENTICAÇÃO
 print('Inserindo login e senha.')
 LOGIN = DRIVER.find_element_by_xpath(
-    '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[2]/div/label/input')
+    '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[1]/div/label/input')
 USER = ''  # Ponha seu login aqui
 LOGIN.send_keys(USER)
 logging.debug(LOGIN)
@@ -55,7 +55,7 @@ logging.debug(LINES)
 PASSWORD = LINES[0]
 logging.debug(PASSWORD)
 PASS_BOX = DRIVER.find_element_by_xpath(
-    '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input')
+    '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[2]/div/label/input')
 logging.debug(PASS_BOX)
 PASS_BOX.send_keys(PASSWORD)
 F.close()
@@ -63,14 +63,14 @@ F.close()
 time.sleep(1)
 # BOTÃO DE LOGIN
 BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
-    '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[4]/button/div')
+    '/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]')
 logging.debug(BUTTON_ELEMENT)
 BUTTON_ELEMENT.click()
 
 time.sleep(15)
 # BOTÃO NOT NOW
 BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
-    '/html/body/div[4]/div/div/div[3]/button[2]')
+    '/html/body/div[1]/section/main/div/div/div/div/button')
 logging.debug(BUTTON_ELEMENT)
 BUTTON_ELEMENT.click()
 
@@ -83,7 +83,7 @@ HASHTAGS = HASHTAGS_FILE.readlines()
 logging.debug(HASHTAGS)
 
 # Randomização do TEMPO de espera entre as ações
-TEMPO = [8, 9, 10, 11, 12, 13, 15, 16, 18, 20, 30, 60, 120]
+TEMPO = [8, 9, 10]
 logging.debug(TEMPO)
 
 # LÊ ARQUIVO DE COMENTÁRIOS - MODIFIQUE INSERINDO UM COMENTÁRIO POR LINHA
@@ -136,12 +136,12 @@ while 0 < 1:
     if str(URL) in str(LIKES):
         print(str(URL)+' Já curtimos esta publicação!')
         BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
-            '/html/body/div[4]/div[1]/div/div/a')
+            '/html/body/div[5]/div[1]/div/div/a[2]')
         logging.debug(BUTTON_ELEMENT)
         BUTTON_ELEMENT.click()
     else:
         BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
-            '/html/body/div[4]/div[2]/div/article/div[2]/section[1]/span[1]/button')
+            '/html/body/div[5]/div[2]/div/article/div[3]/section[1]/span[1]/button')
         logging.debug(BUTTON_ELEMENT)
     BUTTON_ELEMENT.click()
     print('Like!')
@@ -165,7 +165,7 @@ while 0 < 1:
 
     # CLICA BOTÃO PUBLISH
     BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
-        '/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form/button')
+        '/html/body/div[5]/div[2]/div/article/div[3]/section[3]/div/form/button[2]')
     logging.debug(BUTTON_ELEMENT)
     BUTTON_ELEMENT.click()
 
@@ -181,6 +181,6 @@ while 0 < 1:
 
     # AVANÇA PARA PROXIMA PUBLICAÇÃO
     BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
-        '/html/body/div[4]/div[1]/div/div/a')
+        '/html/body/div[5]/div[1]/div/div/a[2]')
     logging.debug(BUTTON_ELEMENT)
     BUTTON_ELEMENT.click()

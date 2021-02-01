@@ -96,4 +96,4 @@ Ex: ./AutoInsta.py
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@icaromsales](https://github.com/icaromsales) - Idea & Initial work
+- [@oicarosales](https://github.com/oicarosales) - Idea & Initial work
