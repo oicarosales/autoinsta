@@ -15,7 +15,7 @@ import getpass
 MYDB = mysql.connector.connect(
     host='',
     user='',
-    passwd='',
+    passwd=getpass.getpass('Db Password: '),
     database=''
 )
 
@@ -53,12 +53,12 @@ BUTTON_ELEMENT = DRIVER.find_element_by_xpath(
 time.sleep(4)
 
 # tags file path - change to your
-HASHTAGS = open('/home/icaro/Projetos/Python/autoinsta/hashtags.txt', 'r').readlines()
+HASHTAGS = open('/home/icaro/MEGA/projetos/autoinsta/hashtags.txt', 'r').readlines()
 
 TIME = [5,6,7]
 
 # comments file path - change to your
-COMMENTS = open('/home/icaro/Projetos/Python/autoinsta/comments.txt', 'r').readlines()
+COMMENTS = open('/home/icaro/MEGA/projetos/autoinsta/comments.txt', 'r').readlines()
 
 # while to chose picture
 while 0 < 1:
